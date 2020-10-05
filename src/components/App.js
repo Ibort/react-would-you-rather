@@ -5,7 +5,9 @@ import { handleInitialData } from '../actions/shared';
 //import LeaderBoard from './LeaderBoard';
 //import Question from './Question';
 //import SignIn from './SignIn';
-//import Home from './Home';
+import NewQuestion from './NewQuestion';
+import Home from './Home';
+import LoadingBar from 'react-redux-loading';
 
 
 class App extends React.Component {
@@ -16,11 +18,21 @@ class App extends React.Component {
   render(){
     return (
       <div>
+        <LoadingBar />
         <header className='appHeader'>Would you Rather...</header>
         <HeaderNav/>
+        {this.props.loading === true 
+          ? null
+          : <NewQuestion /> }        
       </div>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }){
+  return {
+    loading: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);
