@@ -3,11 +3,12 @@ import HeaderNav from './HeaderNav';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import LeaderBoard from './LeaderBoard';
-import Question from './Question';
+//import Question from './Question';
 //import SignIn from './SignIn';
-//import NewQuestion from './NewQuestion';
+import NewQuestion from './NewQuestion';
 import Home from './Home';
 import LoadingBar from 'react-redux-loading';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -17,14 +18,20 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
-        <LoadingBar />
-        <header className='appHeader'>Would you Rather...</header>
-        <HeaderNav/>
-        {this.props.loading === true 
-          ? null
-          : <LeaderBoard /> }        
-      </div>
+      <BrowserRouter>
+        <div>
+          <LoadingBar />
+          <header className='appHeader'>Would you Rather...</header>
+          <HeaderNav/>
+          {this.props.loading === true 
+            ? null
+            : <div>
+                <Route path='/' exact component={Home} />
+                <Route path='/new' component={NewQuestion} />
+                <Route path='/leaderboard' component={LeaderBoard} />
+              </div>}        
+        </div>
+      </BrowserRouter>
     );
   }
 }

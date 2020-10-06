@@ -24,7 +24,7 @@ code {
   font-size: 1.5em;
 }
 
-.headerNav {
+.headerNav{
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
@@ -33,21 +33,33 @@ code {
   font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 30px;;
+  text-decoration: none;
 }
 
-.headerNavBtn{
+.headerNav a{
   width: 250px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   height: 100%;
+  text-decoration: none;
+}
+
+.headerNavBtn {
   color: black;
+}
+
+.headerNavBtnActive {
+  background-color: green;
+  color: white;
+  text-decoration: none;
 }
 
 .headerNavBtn:hover{
   background-color: green;
   color: white;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .signInFrom {

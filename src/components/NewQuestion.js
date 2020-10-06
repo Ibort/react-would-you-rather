@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { handleAddQuestion } from '../actions/questions';
+import { handleAddQuestion,  } from '../actions/questions';
+import { userHandleAddQuestion } from '../actions/users';
 
 class NewQuestion extends React.Component {
     state = {
@@ -25,6 +26,7 @@ class NewQuestion extends React.Component {
         const { dispatch } = this.props;
 
         dispatch(handleAddQuestion(optionOneText,optionTwoText))
+        .then(() => dispatch(userHandleAddQuestion(optionOneText,optionTwoText)))
 
         this.setState({
             optionOneText: '',
