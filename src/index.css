@@ -231,6 +231,12 @@ code {
   background-color: lightgreen;
 }
 
+.question-result-mark{
+  font-weight: bold;
+  color: goldenrod;
+  text-shadow: 1px 1px 3px black;
+}
+
 .question-result span {
   color: black;
   font-weight: bold;
@@ -313,6 +319,45 @@ code {
   border-right: 25px solid transparent;
   
   border-bottom: 25px solid gray;
+  transform: rotate(-45deg);
+}
+
+.edgeArrowGold {
+  position: absolute;
+  left: -17px;
+  top: -4px;
+  width: 0; 
+  height: 0; 
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  
+  border-bottom: 25px solid goldenrod;
+  transform: rotate(-45deg);
+}
+
+.edgeArrowSilver {
+  position: absolute;
+  left: -17px;
+  top: -4px;
+  width: 0; 
+  height: 0; 
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  
+  border-bottom: 25px solid silver;
+  transform: rotate(-45deg);
+}
+
+.edgeArrowBronze {
+  position: absolute;
+  left: -17px;
+  top: -4px;
+  width: 0; 
+  height: 0; 
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  
+  border-bottom: 25px solid #cd7f32;
   transform: rotate(-45deg);
 }
 

@@ -1,24 +1,40 @@
 import React from 'react';
-import av1 from '../img/avatar/boy.png'
 
 class Contestant extends React.Component {
   render(){
+    const { name, answers, questions, avatarURL} = this.props.user;
+    const totalAns = Object.keys(answers).length;
+    const totalQuest = questions.length;
+    const place = this.props.place+1;
+    const placeColor = () => {
+      switch(place) {
+        case 1:
+          return 'edgeArrowGold'
+        case 2:
+          return 'edgeArrowSilver'
+        case 3:
+          return 'edgeArrowBronze'
+        default:
+          return 'edgeArrow'
+
+      }}
+
     return (
       <div className='contestant'>
-            <div className='edgeArrow'><div className='edgeArrow-text'>1</div></div>
+            <div className={placeColor()}><div className='edgeArrow-text'> {place} </div></div>
             <div className='contestant-avatar'>
-                <img src={av1} alt='avatar' width='100%' />
+                <img src={avatarURL} alt='avatar' width='100%' />
             </div>
             <div className='contestant-text'>
-                <h2>Your name</h2>
-                <p>Answered Questions: 7</p>
+                <h2>{name} </h2>
+                <p>Answered Questions: {totalAns} </p>
                 <hr/>
-                <p>Created Questionss: 3</p>
+                <p>Created Questions: {totalQuest} </p>
 
             </div>
             <div className='contestant-score'>
                 <h2>Score :</h2>
-                <span>5</span>
+                <span> {totalAns+totalQuest} </span>
             </div>
 
       </div>

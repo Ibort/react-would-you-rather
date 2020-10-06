@@ -2,13 +2,21 @@ import React from 'react';
 
 class QResult extends React.Component {
   render(){
+    const { votes, votesAll, userAnswer, id } = this.props    
+    const votePercent = votes/votesAll*100;
+
+     const format = (userAnswer === id) 
+      ? 'question-result question-result-yourAnswer' 
+      : 'question-result';
+
     return (
-      <div className='question-result'>
+      <div className={format}>
+          {userAnswer === id && (<div className='question-result-mark'>Your Answer</div>)}
           <h3>Woud you rather qestion?</h3>
           <div className='question-result-pol'>
-              <div id='resPolRes'>50%</div>
+          <div id='resPolRes'> {Math.round(votePercent)}%</div>
           </div>
-          <span>1 of 2 Votes</span>
+          <span>{votes} of {votesAll} Votes</span>
       </div>
     );
   }
