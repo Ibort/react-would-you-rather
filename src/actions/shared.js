@@ -1,10 +1,9 @@
 import { getInitialData } from '../utils/api'
 import { reciveUsers } from './users'
 import { reciveQuestions } from './questions'
-import { setAuthedUser } from './authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading';
+import { setAuthedUser } from '../actions/authedUser';
 
-const AUTHED_ID = 'sarahedo';
 
 export function handleInitialData (){
     return(dispatch) => {
@@ -13,7 +12,7 @@ export function handleInitialData (){
             .then(({users, questions}) => {
                 dispatch(reciveUsers(users))
                 dispatch(reciveQuestions(questions))
-                dispatch(setAuthedUser(AUTHED_ID))
+                dispatch(setAuthedUser(null))
                 dispatch(hideLoading())
             })
     }

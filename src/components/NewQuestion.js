@@ -32,6 +32,7 @@ class NewQuestion extends React.Component {
             optionOneText: '',
             optionTwoText: '',
         })
+        this.props.history.push(`/`)
     }
 
     render(){

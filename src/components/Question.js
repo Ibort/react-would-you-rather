@@ -44,10 +44,11 @@ class Question extends React.Component {
     const votesB = question.optionTwo.votes.length;
     const votesAll = votesA + votesB;
     const userAnswer = authedUserData.answers[id]
+    const title = (isAnswered === 0) ? `${author.name} asks:` : `Asked by ${author.name}`
 
     return (
       <div className='question question-big'> 
-        <header className='question-header'>{author.name}</header>
+        <header className='question-header'>{title}</header>
         <div className='question-cont'>
             <div className='question-cont-avatar'>
                 <img src={author.avatarURL} alt='avatar' width='120px' />
@@ -55,11 +56,13 @@ class Question extends React.Component {
             {isAnswered === 0 && (
             <div className='question-cont-text'>
                 <h2>Would you Rather ...</h2><br/>
-                <form className='question-from'>
-                    <input type="radio" id="optOne" name="gender" value="optionOne" onChange={this.handleChange}/>
-                    <label >{question.optionOne.text}</label><br/><br/>
-                    <input type="radio" id="optTwo" name="gender" value="optionTwo" onChange={this.handleChange}/>
-                    <label >{question.optionTwo.text}</label><br/><br/>
+                <form className='question-from'>                    
+                    <label >{question.optionOne.text}
+                        <input type="radio" id="optOne" name="gender" value="optionOne" onChange={this.handleChange}/>
+                    </label><br/><br/>                    
+                    <label >{question.optionTwo.text}
+                      <input type="radio" id="optTwo" name="gender" value="optionTwo" onChange={this.handleChange}/>
+                    </label><br/><br/>
                     <input className='question-submitBtn' type='submit' value='Submit' disabled={selected === ''} onClick={this.handleSubmit}/>
                 </form>
             </div>

@@ -1,8 +1,36 @@
 import React from 'react';
 import logo from '../logo.svg'
+import { setAuthedUser } from '../actions/authedUser';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class SignIn extends React.Component {
+  state = {
+    user: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      user: e.target.value
+  })
+  }
+
+  handleLogin = (e) => {
+      e.preventDefault();
+      const { dispatch } = this.props;
+      const { user } = this.state;
+
+      dispatch(setAuthedUser(user));
+      this.props.history.push(`/`)
+      this.setState({
+          user: ''
+      })
+      
+  }
+
   render(){
+    const { users } = this.props;
+
     return (
       <div className='signInFrom'>
          <header className='signInForm-header'>
@@ -11,12 +39,14 @@ class SignIn extends React.Component {
              <div className='signInFrom-box'>
                 <img src={logo} alt='React Logo' width='200px'/>
                 <h1>Sign In</h1>
-                <form className='signInForm-form'>
-                    <select className='signInForm-select'>
-                        <option>Ibort</option>
-                        <option>Unless</option>
+                <form className='signInForm-form'> 
+                    <select className='signInForm-select' onClick={this.handleChange}>
+                        <option value=''></option>
+                        {Object.keys(users).map((user) => (
+                            <option key={user} value={users[user].id}>{users[user].name}</option>
+                        ))}
                     </select>
-                    <input className='signInForm-signInBtn' type='submit' value='Sign In'/>
+                    <input className='signInForm-signInBtn' type='submit' value='Sign In' onClick={this.handleLogin} disabled={this.state.user === ''}/>
                 </form>
              </div>
          </header>
@@ -25,4 +55,11 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+function mapStateToProps({ authedUser, users }){
+  return {
+    authedUser,
+    users
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(SignIn));

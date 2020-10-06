@@ -31,23 +31,28 @@ class Home extends React.Component {
     const unanQ = this.props.questionIds.filter(id => Object.keys(this.props.userQ).includes(id))
 
     return (
-      <div className='homeScreen'>
-          <div className='homeScreen-btn'>     
-            <span id='unanQ' className='homeScreen-btn-active' onClick={this.unanQ} >Unanswered Questions</span>
-            <span id='anQ' onClick={this.unanQ} >Answered Questions</span>
+      <div>
+        <div className='homeScreen'>
+            <div className='homeScreen-btn'>     
+              <span id='unanQ' className='homeScreen-btn-active' onClick={this.unanQ} >Unanswered Questions</span>
+              <span id='anQ' onClick={this.unanQ} >Answered Questions</span>
+          </div>
+          {anQ.length === 0 && (
+            <h1>There are no New Qestions</h1>
+          )}
+          {this.state.activeTab === 'unanswered' && (anQ.map((id) => (
+            <Question 
+              key={id}
+              id={id}      
+            />
+          )))}
+          {this.state.activeTab !== 'unanswered' && (unanQ.map((id) => (
+            <Question 
+              key={id}
+              id={id}      
+            />
+          )))}            
         </div>
-        {this.state.activeTab === 'unanswered' && (anQ.map((id) => (
-          <Question 
-            key={id}
-            id={id}      
-          />
-        )))}
-        {this.state.activeTab !== 'unanswered' && (unanQ.map((id) => (
-          <Question 
-            key={id}
-            id={id}      
-          />
-        )))}            
       </div>
     );
   }
