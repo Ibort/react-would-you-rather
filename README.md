@@ -2,7 +2,10 @@
 
 ## Description
 
-With Would you Rather app you can ask would you rather question from the users with 2 option, they can vote for one from the 2. You can also vote for either your or the other question what are created by the users. You can answer just 1 from the 2 options. In the app you can check your answered unanswered questions, questions poll, create new qeustion, check the leaderboard.
+With Would you Rather app you can ask would you rather question from the users with 2 option, they can vote for one from the 2. 
+You can also vote for either your or the other question what are created by the users. 
+You can answer just 1 from the 2 options. 
+In the app you can check your answered unanswered questions, questions poll, create new qeustion, check the leaderboard.
 
 
 ## App info
