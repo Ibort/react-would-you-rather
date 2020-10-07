@@ -16,8 +16,8 @@ class Header extends React.Component {
 
   render(){
     const { authedUser, users } = this.props;
-   const loggedUser = (authedUser) ? users[authedUser].name : '';
-   const avatar = (authedUser) ? users[authedUser].avatarURL : '';
+    const loggedUser = (authedUser) ? users[authedUser].name : '';
+    const avatar = (authedUser) ? users[authedUser].avatarURL : '';
 
     return (
       <div className='headerNav'>

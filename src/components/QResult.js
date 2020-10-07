@@ -14,7 +14,7 @@ class QResult extends React.Component {
           {userAnswer === id && (<div className='question-result-mark'>Your Answer</div>)}
           <h3>Woud you rather qestion?</h3>
           <div className='question-result-pol'>
-          <div id='resPolRes' style={{width:`${votePercent}%`}}> {Math.round(votePercent)}%</div>
+            <div id='resPolRes' style={{width:`${votePercent}%`}}> {Math.round(votePercent)}%</div>
           </div>
           <span>{votes} of {votesAll} Votes</span>
       </div>

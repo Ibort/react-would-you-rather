@@ -10,8 +10,7 @@ class LeaderBoard extends React.Component {
       <div className='leaderBoard'>
           {usersOrder.map((user, index) => (
             <Contestant user={users[user]} place={index} key={user}/>
-          ))}
-          
+          ))}          
       </div>
     );
   }

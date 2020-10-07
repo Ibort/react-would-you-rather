@@ -15,7 +15,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
-  //data={{name:users[authedUser].name, avatar:users[authedUser].avatarURL}}
+
   render(){
     return (
       <BrowserRouter>
