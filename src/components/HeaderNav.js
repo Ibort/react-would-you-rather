@@ -22,7 +22,7 @@ class Header extends React.Component {
     return (
       <div className='headerNav'>
         <NavLink to='/' className='headerNavBtn' exact activeClassName='headerNavBtnActive'>Home</NavLink>
-        <NavLink to='/new' className='headerNavBtn' activeClassName='headerNavBtnActive'>New Question</NavLink>
+        <NavLink to='/add' className='headerNavBtn' activeClassName='headerNavBtnActive'>New Question</NavLink>
         <NavLink to='/leaderboard' className='headerNavBtn' activeClassName='headerNavBtnActive'>Leader Borad</NavLink>
         {authedUser !== null && (
         <div className='headerNav-logout'>
