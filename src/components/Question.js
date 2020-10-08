@@ -3,6 +3,7 @@ import QResult from './QResult';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/questions';
 import { handleUserAnswerQuestion } from  '../actions/users';
+import { Redirect } from 'react-router-dom';
 
 
 class Question extends React.Component {
@@ -40,11 +41,15 @@ class Question extends React.Component {
     const { author, question, id, authedUserData } = this.props;
     const { selected } = this.state;
     const isAnswered = Object.keys(authedUserData.answers).filter(qid => qid === id).length;
-    const votesA = question.optionOne.votes.length;
-    const votesB = question.optionTwo.votes.length;
+    const votesA = (author === '') ? '' : question.optionOne.votes.length;
+    const votesB = (author === '') ? '' : question.optionTwo.votes.length;
     const votesAll = votesA + votesB;
     const userAnswer = authedUserData.answers[id]
     const title = (isAnswered === 0) ? `${author.name} asks:` : `Asked by ${author.name}`
+
+    if(author === '') {
+      return <Redirect to="/404" />
+    }
 
     return (
       <div className='question question-big'> 
@@ -83,8 +88,9 @@ class Question extends React.Component {
 function mapStateToProps({ questions, authedUser, users }, props){
   const { id } = props.match.params;
   const question = questions[id];
-  const author = users[question.author];
+  const author = (question) ? users[question.author] : '';
   const authedUserData = users[authedUser]
+
   return {
     id,
     authedUser,
