@@ -17,11 +17,11 @@ class SignIn extends React.Component {
 
   handleLogin = (e) => {
       e.preventDefault();
-      const { dispatch } = this.props;
+      const { dispatch, location } = this.props;
       const { user } = this.state;
 
       dispatch(setAuthedUser(user));
-      this.props.history.push(`/`)
+      this.props.history.push(location.pathname)
       this.setState({
           user: ''
       })
@@ -40,7 +40,7 @@ class SignIn extends React.Component {
                 <img src={logo} alt='React Logo' width='200px'/>
                 <h1>Sign In</h1>
                 <form className='signInForm-form'> 
-                    <select className='signInForm-select' onClick={this.handleChange}>
+                    <select className='signInForm-select' onChange={this.handleChange}>
                         <option value=''></option>
                         {Object.keys(users).map((user) => (
                             <option key={user} value={users[user].id}>{users[user].name}</option>
