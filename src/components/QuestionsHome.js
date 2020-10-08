@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, withRouter } from 'react-router-dom';
+import {NavLink, withRouter } from 'react-router-dom';
 
 class QuestionsHome extends React.Component {
 
@@ -29,7 +29,7 @@ class QuestionsHome extends React.Component {
             <div className='question-cont-text'>
                 <span className='question-cont-text-header'>Would you Rather</span>
                 <p>...{optionOne.text}...</p>
-                <Link to={`/question/${id}`} className='question-cont-text-btn' onClick={(e) => this.toQuestion(e, this.props.id)}>View Poll</Link>
+                <NavLink to={`/question/${id}`} className='question-cont-text-btn' onClick={(e) => this.toQuestion(e, this.props.id)}>View Poll</NavLink>
             </div>
         </div>
       </div>

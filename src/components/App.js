@@ -8,7 +8,8 @@ import SignIn from './SignIn';
 import NewQuestion from './NewQuestion';
 import Home from './Home';
 import LoadingBar from 'react-redux-loading';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch  } from 'react-router-dom';
+import NotFound from './NotFound';
 
 
 class App extends React.Component {
@@ -28,10 +29,13 @@ class App extends React.Component {
                 <Route path='/' component={SignIn} />
               </div>
             : <div>
-                <Route path='/' exact component={Home} />
-                <Route path='/add' component={NewQuestion} />
-                <Route path='/question/:id' component={Question} />
-                <Route path='/leaderboard' component={LeaderBoard} />
+                <Switch>
+                  <Route path='/' exact component={Home} />
+                  <Route path='/add' component={NewQuestion} />
+                  <Route path='/question/:id' component={Question} />
+                  <Route path='/leaderboard' component={LeaderBoard} />
+                  <Route component={NotFound} />
+                </Switch>
               </div>}        
         </div>
       </BrowserRouter>
