@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class LeaderBoard extends React.Component {
   render(){
     const { users, usersOrder } = this.props;
-    console.log('test');
+
     return (
       <div className='leaderBoard'>
           {usersOrder.map((user, index) => (

@@ -10,13 +10,7 @@ class NewQuestion extends React.Component {
     }
 
     handleChange = (e) => {
-        const text = e.target.value;
-        if(e.target.name === 'optionOneText') {
-            this.setState({optionOneText: text})
-        }
-        if(e.target.name === 'optionTwoText') {
-            this.setState({optionTwoText: text})
-        }        
+        this.setState({[e.target.name]: e.target.value})
     }
 
     handleSubmit = (e) => {
